@@ -1,11 +1,17 @@
 ---
 # vars file for ovhbastion
 
-# OVH Bastion version to install
+# ovh bastion version to install
 bastion_version: 3.00.00
 
-# Code location
+# ovh ttyrec version to install
+ttyrec_version: 1.1.6.5
+
+# code location
 bastion_install_dir: "/opt/bastion"
 
-# Tarball URL
+# bastion tarball url
 bastion_package_url: "https://github.com/ovh/the-bastion/archive/v{{ bastion_version }}.tar.gz"
+
+# ttyrec package url
+ttyrec_package_url: "https://github.com/ovh/ovh-ttyrec/releases/download/v{{ ttyrec_version }}/ovh-ttyrec_{{ ttyrec_version }}_amd64.deb"
