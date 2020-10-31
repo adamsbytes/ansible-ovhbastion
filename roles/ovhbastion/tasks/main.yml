@@ -15,6 +15,8 @@
     src: "{{ bastion_package_url }}"
     dest: "{{ bastion_install_dir }}"
     remote_src: yes
+    extra_opts:
+    - --strip-components=1
 
 - name: install ttyrec deb package
   apt:
