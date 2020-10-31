@@ -1,11 +1,15 @@
 ---
 # vars file for ovhbastion
+ssh_key: "KEYHERE"
 
 # ovh bastion version to install
 bastion_version: 3.00.00
 
 # ovh ttyrec version to install
 ttyrec_version: 1.1.6.5
+
+# name of bastion's superadmin account
+bastion_superadmin_uname: "primaryadmin"
 
 # code location
 bastion_install_dir: "/opt/bastion"
