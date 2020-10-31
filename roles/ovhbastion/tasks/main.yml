@@ -1,5 +1,15 @@
 ---
 # tasks file for ovhbastion
+- name: install pip
+  apt:
+    update_cache: yes
+    name:
+      - python3-pip
+
+- name: install pexpect
+  pip:
+    name: pexpect
+
 - name: create directory for bastion install
   file:
     path: "{{ item }}"
@@ -25,5 +35,25 @@
 
 - name: install bastion packages
   shell:
-    cmd: /opt/bastion/bin/admin/packages-check.sh -i -s -t >> ansible-install-log.txt
+    cmd: /opt/bastion/bin/admin/packages-check.sh -i -s -t >> .package-install-log
     chdir: "{{ bastion_install_dir }}"
+    creates: .package-install-log
+
+- name: complete basic system configuration
+  shell:
+    cmd: /opt/bastion/bin/admin/install --new-install --no-wait >> .config-log
+    chdir: "{{ bastion_install_dir }}"
+    creates: .config-log
+
+- name: verify perl module installation
+  shell:
+    cmd: /opt/bastion/bin/dev/perl-check.sh >> .perlcheck-log
+    chdir: "{{ bastion_install_dir }}"
+
+- name: complete initial account setup
+  expect:
+    command: /opt/bastion/bin/admin/setup-first-admin-account.sh "{{ bastion_superadmin_uname }}" auto
+    responses:
+      (?i)passphrase: "{{ ssh_key }}"
+    chdir: "{{ bastion_install_dir }}"
+  no_log: true
