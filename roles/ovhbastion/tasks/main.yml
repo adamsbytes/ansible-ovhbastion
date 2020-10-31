@@ -15,3 +15,13 @@
     src: "{{ bastion_package_url }}"
     dest: "{{ bastion_install_dir }}"
     remote_src: yes
+
+- name: install ttyrec deb package
+  apt:
+    deb: "{{ ttyrec_package_url }}"
+    update_cache: yes
+
+- name: install bastion packages
+  shell:
+    cmd: /opt/bastion/bin/admin/packages-check.sh -i -s -t >> ansible-install-log.txt
+    chdir: "{{ bastion_install_dir }}"
