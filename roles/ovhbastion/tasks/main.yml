@@ -1,2 +1,17 @@
 ---
 # tasks file for ovhbastion
+- name: create directory for bastion install
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0775
+  loop:
+    - "{{ bastion_install_dir }}"
+
+- name: extract bastion files to install directory
+  unarchive:
+    src: "{{ bastion_package_url }}"
+    dest: "{{ bastion_install_dir }}"
+    remote_src: yes
