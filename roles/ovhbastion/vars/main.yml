@@ -4,6 +4,8 @@
 # OVH Bastion version to install
 bastion_version: 3.00.00
 
+# Code location
+bastion_install_dir: "/opt/bastion"
+
 # Tarball URL
-bastion_packages:
-  - "https://github.com/ovh/the-bastion/archive/v{{ bastion_version }}.tar.gz"
+bastion_package_url: "https://github.com/ovh/the-bastion/archive/v{{ bastion_version }}.tar.gz"
