@@ -1,0 +1,20 @@
+galaxy_info:
+  author: Adam Quanne
+  description: OVH Bastion
+  company: Adam Quanne
+  license: license GPL-3.0-only
+  min_ansible_version: 2.9
+
+  platforms:
+  - name: Ubuntu
+    versions:
+    - bionic
+
+  galaxy_tags:
+  - ubuntu
+  - bastion
+  - jumpbox
+  - jumphost
+
+# dependencies: []
+  
