@@ -25,7 +25,7 @@
     state: directory
     owner: root
     group: root
-    mode: 0775
+    mode: "0775"
   loop:
     - "{{ bastion_install_dir }}"
 
