@@ -1,10 +1,19 @@
 ---
 # tasks file for ovhbastion
-- name: install pip
+- name: install python2 pip
+  apt:
+    update_cache: yes
+    name:
+      - python-pip
+      - python-setuptools
+  when: ansible_facts['python_version'] is version('3', '<=')
+
+- name: install python3 pip
   apt:
     update_cache: yes
     name:
       - python3-pip
+  when: ansible_facts['python_version'] is version('3', '>=')
 
 - name: install pexpect
   pip:
