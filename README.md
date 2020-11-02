@@ -16,9 +16,10 @@ Role Variables
 
 #### Required
 `ssh_key`: string with public ssh key for access to initial admin account
+
 #### Recommended
-`bastion_name`: string with name of bastion host. the system's actual hostname is _not_ recommended
-`bastion_create_admin`: toggle creation of the superadmin account
+`bastion_name`: string with name of bastion host. the system's actual hostname is _not_ recommended\
+`bastion_create_admin`: toggle creation of the superadmin account\
 `bastion_superadmin_uname`: string with username for the bastion superadmin (if enabled)
 
 See `defaults/main.yml` for optional variables that can be set.
