@@ -17,7 +17,6 @@ galaxy_info:
     - bionic
 
   galaxy_tags:
-  - ubuntu
   - bastion
   - jumpbox
   - jumphost
