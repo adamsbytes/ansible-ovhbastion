@@ -12,17 +12,17 @@
 # bastionName (string), deprecated alias: cacheName
 #    DESC: this will be the name advertised in the aliases admins will give to bastion users, you can see it as a friendly name everybody will use to refer to this machine (try to avoid using the full hostname here)
 # DEFAULT: fix-my-config-please-missing-bastion-name
-"bastionName": "fix-my-config-please-missing-bastion-name",
+"bastionName": "{{ bastion_name | default('fix-my-config-please-missing-bastion-name') }}",
 #
 # bastionCommand (string), deprecated alias: cacheCommand
 #    DESC: the ssh command to launch to connect to this bastion as a user. This will be printed on accountCreate, so that the new user knows how to connect. Magic values are ACCOUNT (replaced at runtime by the account name), BASTIONNAME (replaced at runtime by the name defined in `bastionName'), HOSTNAME (replaced at runtime by the hostname of the system, namely what is returned by `perl -MSys::Hostname -e 'print hostname'`). Note that previous magic values where USER (=ACCOUNT) and CACHENAME (=BASTIONNAME), they're still supported.
 # DEFAULT: ssh USER@HOSTNAME -t --
-"bastionCommand": "ssh USER@HOSTNAME -t -- ",
+"bastionCommand": "{{ bastion_defaultcommand | default('ssh USER@HOSTNAME -t --') }}",
 #
 # debug (boolean-int, i.e. 0 or 1)
 #    DESC: enables or disables debug GLOBALLY. Discouraged. Prefer using the dev/debug_toggle.sh tool to enable/disable per account. Mostly useful for bastion developer on bastion dev machine only.
 #  DEFAULT: 0
-"debug": 0,
+"debug": {{ bastion_debugmode | default(0) | string }},
 #
 # defaultLogin (string)
 #      DESC: The default remote user to use for egress ssh connections where no user has been specified by our caller. If set to "", will default to the account name of the caller. Some legacy bastions had "root" as a default, which is somehow discouraged but depends on your infrastructure policy.
