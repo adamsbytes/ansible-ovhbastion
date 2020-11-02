@@ -75,4 +75,5 @@
     responses:
       (?i)passphrase: "{{ ssh_key }}"
     chdir: "{{ bastion_install_dir }}"
+  when: bastion_create_admin | bool
   no_log: true
