@@ -4,6 +4,7 @@ ovhbastion
 This role installs and configures the [OVH Bastion](https://github.com/ovh/the-bastion) software package. The ovhbastion role is based on the [official OVH Bastion installation instructions](https://ovh.github.io/the-bastion/installation/basic.html). Please visit [the official OVH Bastion documentation](https://ovh.github.io/the-bastion/index.html) for more information.
 
 Once you run this role, [click here](https://ovh.github.io/the-bastion/using/basics.html) to view the next steps in configuring OVH Bastion.
+
 Tested On
 ------------
 
