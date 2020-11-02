@@ -3,7 +3,7 @@ galaxy_info:
   description: OVH Bastion
   company: Adam Quanne
   license: license GPL-3.0-only
-  min_ansible_version: 2.9
+  min_ansible_version: 2.7
 
   platforms:
   - name: Debian
