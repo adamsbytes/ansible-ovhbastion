@@ -50,6 +50,14 @@
     cmd: /opt/bastion/bin/dev/perl-check.sh >> .perlcheck-log
     chdir: "{{ bastion_install_dir }}"
 
+- name: replace default configuration file
+  template:
+    src: bastion_conf.j2
+    dest: /etc/bastion/bastion.conf
+    owner: root
+    group: root
+    mode: '0644'
+
 - name: complete initial account setup
   expect:
     command: /opt/bastion/bin/admin/setup-first-admin-account.sh "{{ bastion_superadmin_uname }}" auto
