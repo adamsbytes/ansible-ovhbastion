@@ -21,19 +21,23 @@ Role Variables
 
 See `defaults/main.yml` for optional variables that can be set.
 
-Dependencies
+Role Installation
 ------------
 
-None.
+```bash
+$ ansible-galaxy install adamsbytes.ovhbastion
+```
 
 Example Playbook
 ----------------
 
-    - hosts: all
-    become: yes
-    gather_facts: yes
-    roles:
-      - role: ovhbastion
+```yaml
+- hosts: all
+become: yes
+gather_facts: yes
+roles:
+  - role: adamsbytes.ovhbastion
+```
 
 License
 -------
