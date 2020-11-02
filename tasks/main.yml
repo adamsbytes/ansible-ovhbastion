@@ -58,6 +58,7 @@
   shell:
     cmd: /opt/bastion/bin/dev/perl-check.sh >> .perlcheck-log
     chdir: "{{ bastion_install_dir }}"
+    creates: .perlcheck-log
 
 - name: replace default configuration file
   template:
