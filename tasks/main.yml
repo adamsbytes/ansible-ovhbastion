@@ -25,7 +25,7 @@
     state: directory
     owner: root
     group: root
-    mode: 0775
+    mode: "0775"
   loop:
     - "{{ bastion_install_dir }}"
 
@@ -34,8 +34,9 @@
     src: "{{ bastion_package_url }}"
     dest: "{{ bastion_install_dir }}"
     remote_src: yes
+    mode: "0775"
     extra_opts:
-    - --strip-components=1
+      - --strip-components=1
 
 - name: install ttyrec deb package
   apt:
