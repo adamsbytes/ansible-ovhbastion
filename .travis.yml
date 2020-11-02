@@ -12,7 +12,7 @@ env:
 addons:
   apt:
     packages:
-    - python-pip
+      - python-pip
 
 install:
   - pip install --upgrade pip
