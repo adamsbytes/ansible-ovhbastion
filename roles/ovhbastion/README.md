@@ -3,15 +3,21 @@ ovhbastion
 
 This role installs and configures the OVH Bastion software package.
 
-Requirements
+Tested On
 ------------
 
-Ubuntu 18+ with an internet connection.
+- Debian 8+
+- Ubuntu 18+
 
 Role Variables
 --------------
 
-Coming soon.
+#### Required
+`ssh_key`: string with public ssh key for access to initial admin account
+#### Recommended
+`bastion_name`: string with name of bastion host. the system's actual hostname is _not_ recommended.
+
+See `vars/main.yml` for optional variables that can be set.
 
 Dependencies
 ------------
@@ -21,7 +27,11 @@ None.
 Example Playbook
 ----------------
 
-Coming soon.
+    - hosts: all
+    become: yes
+    gather_facts: yes
+    roles:
+      - role: ovhbastion
 
 License
 -------
