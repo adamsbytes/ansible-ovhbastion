@@ -22,5 +22,8 @@ galaxy_info:
     - bastion
     - jumpbox
     - jumphost
+    - monitoring
+    - networking
+    - system
 
 # dependencies: []
