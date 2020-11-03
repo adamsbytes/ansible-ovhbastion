@@ -18,15 +18,16 @@ addons:
     packages:
       - python3-pip
 
-      script:
-        - pip install --upgrade pip
-        - pip install ansible ansible-lint yamllint
-        - ansible --version
-        - ansible-lint ./
-        - yamllint ./
+script:
+  - pip install --upgrade pip
+  - pip install ansible ansible-lint yamllint shellcheck
+  - ansible --version
+  - ansible-lint ./
+  - yamllint ./
+  - shellcheck ./.travis/*.sh
 
-      after_script:
-        - .travis/push-tags.sh
+after_script:
+  - .travis/push-tags.sh
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
