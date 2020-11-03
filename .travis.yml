@@ -2,6 +2,7 @@
 language: python
 dist: focal
 python: "3.9"
+sudo: false
 
 branches:
   only:
@@ -18,16 +19,18 @@ addons:
     packages:
       - python3-pip
 
-script:
+install:
   - pip install --upgrade pip
   - pip install ansible ansible-lint yamllint shellcheck
   - ansible --version
+
+script:
   - ansible-lint ./
   - yamllint ./
   - shellcheck ./.travis/*.sh
 
 after_success:
-  - .travis/push-tags.sh
+  - ./.travis/push-tags.sh
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
