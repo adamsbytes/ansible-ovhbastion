@@ -17,10 +17,11 @@ addons:
   apt:
     packages:
       - python3-pip
+      - shellcheck
 
 install:
   - pip install --upgrade pip
-  - pip install ansible ansible-lint yamllint shellcheck
+  - pip install ansible ansible-lint yamllint
   - ansible --version
 
 script:
