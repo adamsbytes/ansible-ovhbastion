@@ -14,27 +14,6 @@ if [ "${TRAVIS_PULL_REQUEST}" != "false" ]; then
     TRAVIS_BRANCH="dev"
 fi
 
-case $TRAVIS_BRANCH in
-    "develop" | "dev")
-        # Dry run for debug
-        echo -n "Dry run push for version ${NEW_VERSION_TAG} with description ${NEW_VERSION_DESCRIPTION}"
-        git_configure()
-        git status
-        ;;
-
-    "main")
-        # Push tags to git
-        git_configure()
-        git_push_tags()
-        ;;
-
-    *)
-        # Error due to invalid branch
-        echo "Invalid branch. Current value of TRAVIS_BRANCH: $TRAVIS_BRANCH"
-        exit 1
-        ;;
-esac
-
 git_configure() {
     git config --global user.email "travis@travis-ci.org"
     git config --global user.name "Travis CI"
@@ -60,3 +39,24 @@ git_push_tags() {
         exit 1
     fi
 }
+
+case $TRAVIS_BRANCH in
+    "develop" | "dev")
+        # Dry run for debug
+        echo -n "Dry run push for version ${NEW_VERSION_TAG} with description ${NEW_VERSION_DESCRIPTION}"
+        git_configure
+        git status
+        ;;
+
+    "main")
+        # Push tags to git
+        git_configure
+        git_push_tags
+        ;;
+
+    *)
+        # Error due to invalid branch
+        echo "Invalid branch. Current value of TRAVIS_BRANCH: $TRAVIS_BRANCH"
+        exit 1
+        ;;
+esac
