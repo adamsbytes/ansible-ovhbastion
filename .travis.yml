@@ -10,8 +10,6 @@ branches:
 env:
   global:
     - ROLE_NAME: ovhbastion
-    - NEW_VERSION_TAG: v1.0.5
-    - NEW_VERSION_DESCRIPTION="Improved metadata and project attributes."
 
 addons:
   apt:
@@ -30,6 +28,7 @@ script:
   - shellcheck ./.travis/*.sh
 
 after_success:
+  - ./.travis/version.sh
   - ./.travis/push-tags.sh
 
 notifications:
