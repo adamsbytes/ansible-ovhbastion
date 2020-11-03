@@ -11,24 +11,29 @@ env:
   global:
     - ROLE_NAME: ovhbastion
     - NEW_VERSION_TAG: v1.0.4
-    - NEW_VERSION_DESCRIPTION: "Enhanced pipeline and updated README"
+    - NEW_VERSION_DESCRIPTION="Enhanced pipeline and updated README"
 
 addons:
   apt:
     packages:
       - python3-pip
+      - shellcheck
+
+install:
+  - pip install --upgrade pip
+  - pip install ansible ansible-lint yamllint
+  - ansible --version
 
 script:
-  - pip install --upgrade pip
-  - pip install ansible ansible-lint yamllint shellcheck
-  - ansible --version
   - ansible-lint ./
   - yamllint ./
   - shellcheck ./.travis/*.sh
 
 after_success:
-  - .travis/push-tags.sh
+  - ./.travis/push-tags.sh
 
 notifications:
-  webhooks: https://galaxy.ansible.com/api/v1/notifications/
+  webhooks:
+    urls:
+      - https://galaxy.ansible.com/api/v1/notifications/
     if: type = push
