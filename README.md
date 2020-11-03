@@ -41,6 +41,8 @@ Example Playbook
   gather_facts: yes
   roles:
     - role: adamsbytes.ovhbastion
+  vars:
+    ssh_key: "YOUR_PUBLIC_SSH_KEY_HERE"
 ```
 
 License
