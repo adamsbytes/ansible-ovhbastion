@@ -8,6 +8,7 @@ ttyrec_package_url: "https://github.com/ovh/ovh-ttyrec/releases/download/v{{ tty
 
 ### Necessary variables
 ssh_key: "KEYHERE"
+bastion_create_admin: true # whether to create the superadmin account
 bastion_superadmin_uname: "primaryadmin" # name of bastion's superadmin account
 
 ### Recommended Variables
