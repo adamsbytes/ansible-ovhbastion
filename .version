@@ -1,0 +1,6 @@
+1.0.0,"Initial release"
+1.0.1,"Fixed minor issues and minimum ansible version requirement"
+1.0.2,"Added .travis.yml and fixed role name"
+1.0.3,"Fixed CI pipeline and small issues"
+1.0.4,"Enhanced pipeline and updated README"
+1.0.5,"Improved metadata and project attributes."
