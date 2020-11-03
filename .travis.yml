@@ -10,8 +10,8 @@ branches:
 env:
   global:
     - ROLE_NAME: ovhbastion
-    - NEW_VERSION_TAG: v1.0.4
-    - NEW_VERSION_DESCRIPTION="Enhanced pipeline and updated README"
+    - NEW_VERSION_TAG: v1.0.5
+    - NEW_VERSION_DESCRIPTION="Improved metadata and project attributes."
 
 addons:
   apt:
