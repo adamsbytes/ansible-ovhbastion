@@ -18,13 +18,14 @@ case $TRAVIS_BRANCH in
     "develop" | "dev")
         # Dry run for debug
         echo -n "Dry run push for version ${NEW_VERSION_TAG} with description ${NEW_VERSION_DESCRIPTION}"
-        git_configure
+        git_configure()
+        git status
         ;;
 
     "main")
         # Push tags to git
-        git_configure
-        git_push_tags
+        git_configure()
+        git_push_tags()
         ;;
 
     *)
