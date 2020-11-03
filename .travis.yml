@@ -28,7 +28,7 @@ script:
   - shellcheck ./.travis/*.sh
 
 after_success:
-  - ./.travis/version.sh
+  - . .travis/version.sh
   - ./.travis/push-tags.sh
 
 notifications:
