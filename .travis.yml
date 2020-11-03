@@ -3,47 +3,31 @@ language: python
 dist: focal
 python: "3.9"
 
-# Use the new container infrastructure
-sudo: false
-
-stages:
-  - name: lint
-    if: branch = main
-  - name: version
-    if: branch = main
-  - name: deploy
-    if: tag IS present
-
 branches:
-  except:
-    - develop
+  only:
+    - main
 
 env:
   global:
     - ROLE_NAME: ovhbastion
+    - NEW_VERSION_TAG: v1.0.4
+    - NEW_VERSION_DESCRIPTION: "Enhanced pipeline and updated README"
 
 addons:
   apt:
     packages:
       - python3-pip
 
-install:
-  - pip install --upgrade pip
-  - pip install ansible ansible-lint yamllint
-  - ansible --version
-  # Create ansible.cfg with correct roles_path
-  - printf '[defaults]\nroles_path=../' >ansible.cfg
+      script:
+        - pip install --upgrade pip
+        - pip install ansible ansible-lint yamllint
+        - ansible --version
+        - ansible-lint ./
+        - yamllint ./
 
-before_script:
-  - cd ../
-  - mv ansible-$ROLE_NAME adamsbytes.$ROLE_NAME
-  - cd adamsbytes.$ROLE_NAME
-
-script:
-  # Run tests
-  - ansible-lint ./
-  - yamllint ./
+      after_script:
+        - .travis/push-tags.sh
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
-    if: branch = main
+    if: type = push
