@@ -20,7 +20,7 @@ git_configure() {
 }
 
 git_push_tags() {
-    if git checkout -b main; then
+    if git checkout -f main; then
         echo -n "Checked out latest version of main branch"
     else
         echo -n "git checkout process failed - exiting!"
