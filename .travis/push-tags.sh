@@ -10,7 +10,7 @@ GIT_ACCESS_TOKEN="${GIT_ACCESS_TOKEN:?Missing variable GIT_ACCESS_TOKEN}"
 # TRAVIS_PULL_REQUEST is false when the source of the pipeline is NOT a pull request
 # if the source of the pipeline is a pull request (a non-false answer), set branch to dev
 # and deviate to a dry run
-if ["${TRAVIS_PULL_REQUEST}" != "false" ]; then
+if [ "${TRAVIS_PULL_REQUEST}" != "false" ]; then
     TRAVIS_BRANCH="dev"
 fi
 
@@ -46,13 +46,13 @@ git_push_tags() {
         echo -n "git checkout process failed - exiting!"
         exit 1
     fi
-    if git tag ${NEW_VERSION_TAG} -a -m ${NEW_VERSION_DESCRIPTION}; then
+    if git tag "${NEW_VERSION_TAG}" -a -m "${NEW_VERSION_DESCRIPTION}"; then
         echo -n "Tagged with version ${NEW_VERSION_TAG}"
     else
         echo -n "git tag process failed - exiting!"
         exit 1
     fi
-    if git push -q https://${GIT_USER_NAME}:${GIT_ACCESS_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git --tags; then
+    if git push -q https://"${GIT_USER_NAME}":"${GIT_ACCESS_TOKEN}"@github.com/"${TRAVIS_REPO_SLUG}".git --tags; then
         echo -n "Release pushed to git successfully"
     else
         echo -n "git push failed - exiting!"
