@@ -1,11 +1,11 @@
 #!/bin/bash
 
-TRAVIS_BRANCH="${TRAVIS_BRANCH:?Missing variable TRAVIS_BRANCH}"
-TRAVIS_PULL_REQUEST="${TRAVIS_PULL_REQUEST:?Missing variable TRAVIS_PULL_REQUEST}"
-NEW_VERSION_TAG="${NEW_VERSION_TAG:?Missing variable NEW_VERSION_TAG}"
-NEW_VERSION_DESCRIPTION="${NEW_VERSION_DESCRIPTION:?Missing variable NEW_VERSION_DESCRIPTION}"
-GIT_USER_NAME="${GIT_USER_NAME:?Missing variable GIT_USER_NAME}"
-GIT_ACCESS_TOKEN="${GIT_ACCESS_TOKEN:?Missing variable GIT_ACCESS_TOKEN}"
+TRAVIS_BRANCH="${TRAVIS_BRANCH:?Missing variable}"
+TRAVIS_PULL_REQUEST="${TRAVIS_PULL_REQUEST:?Missing variable}"
+NEW_VERSION_TAG="${NEW_VERSION_TAG:?Missing variable}"
+NEW_VERSION_DESCRIPTION="${NEW_VERSION_DESCRIPTION:?Missing variable}"
+GIT_USER_NAME="${GIT_USER_NAME:?Missing variable}"
+GIT_ACCESS_TOKEN="${GIT_ACCESS_TOKEN:?Missing variable}"
 
 # TRAVIS_PULL_REQUEST is false when the source of the pipeline is NOT a pull request
 # if the source of the pipeline is a pull request (a non-false answer), set branch to dev
