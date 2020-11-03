@@ -1,5 +1,6 @@
 ovhbastion
 =========
+[![Build Status](https://travis-ci.com/adamsbytes/ansible-ovhbastion.svg?branch=main)](https://travis-ci.com/adamsbytes/ansible-ovhbastion)
 
 This role installs and configures the [OVH Bastion](https://github.com/ovh/the-bastion) software package. The ovhbastion role is based on the [official OVH Bastion installation instructions](https://ovh.github.io/the-bastion/installation/basic.html). Please visit [the official OVH Bastion documentation](https://ovh.github.io/the-bastion/index.html) for more information.
 
@@ -36,10 +37,10 @@ Example Playbook
 
 ```yaml
 - hosts: all
-become: yes
-gather_facts: yes
-roles:
-  - role: adamsbytes.ovhbastion
+  become: yes
+  gather_facts: yes
+  roles:
+    - role: adamsbytes.ovhbastion
 ```
 
 License
