@@ -4,7 +4,7 @@
 IFS=',' read -ra current_version_arr <<< "$(tail -1 ./.version)"
 
 # Sanity check, expecting 2 elements (version/description)
-if [ ${#current_version_arr[@]} != 2 ]; then
+if (( ${#current_version_arr[@]} != 2 )); then
   echo "Expecting two elements from file, found ${#current_version_arr[@]}"
   exit 1
 fi
@@ -19,7 +19,7 @@ else
 fi
 
 # Verify multi-word description and set variable
-if (echo "${current_version_arr[1]}" | wc -w) > 4; then
+if (( $(echo "${current_version_arr[1]}" | wc -w) > 4 )); then
   export NEW_VERSION_DESCRIPTION=${current_version_arr[1]}
   echo "Setting NEW_VERSION_DESCRIPTION to: ${NEW_VERSION_DESCRIPTION}"
 else
