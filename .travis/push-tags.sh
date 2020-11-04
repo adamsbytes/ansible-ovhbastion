@@ -21,21 +21,21 @@ git_configure() {
 
 git_push_tags() {
     if git checkout -f main; then
-        echo -n "Checked out latest version of main branch"
+        echo "Checked out latest version of main branch"
     else
-        echo -n "git checkout process failed - exiting!"
+        echo "git checkout process failed - exiting!"
         exit 1
     fi
     if git tag "${NEW_VERSION_TAG}" -a -m "${NEW_VERSION_DESCRIPTION}"; then
-        echo -n "Tagged with version ${NEW_VERSION_TAG}"
+        echo "Tagged with version ${NEW_VERSION_TAG}"
     else
-        echo -n "git tag process failed - exiting!"
+        echo "git tag process failed - exiting!"
         exit 1
     fi
     if git push -q https://"${GIT_USER_NAME}":"${GIT_ACCESS_TOKEN}"@github.com/"${TRAVIS_REPO_SLUG}".git --tags; then
-        echo -n "Release pushed to git successfully"
+        echo "Release pushed to git successfully"
     else
-        echo -n "git push failed - exiting!"
+        echo "git push failed - exiting!"
         exit 1
     fi
 }
@@ -43,7 +43,7 @@ git_push_tags() {
 case $TRAVIS_BRANCH in
     "develop" | "dev")
         # Dry run for debug
-        echo -n "Dry run push for version ${NEW_VERSION_TAG} with description ${NEW_VERSION_DESCRIPTION}"
+        echo "Dry run push for version ${NEW_VERSION_TAG} with description ${NEW_VERSION_DESCRIPTION}"
         git_configure
         git status
         ;;
