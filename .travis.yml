@@ -7,10 +7,6 @@ branches:
   only:
     - main
 
-env:
-  global:
-    - ROLE_NAME: ovhbastion
-
 addons:
   apt:
     packages:
