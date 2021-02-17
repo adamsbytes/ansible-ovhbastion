@@ -17,3 +17,5 @@ bastion_superadmin_uname: "primaryadmin" # name of bastion's superadmin account
 ### Optional Variables
 #bastion_defaultcommand: "ssh USER@HOSTNAME -t --"
 #bastion_debugmode: "0"
+#bastion_interactive_mode_timeout: "60"
+#bastion_mfa_password_max_days: "90"
