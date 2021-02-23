@@ -24,7 +24,6 @@ docker run -ti --privileged --name "${DOCKER_CONTAINER_NAME}" -d -P "${DOCKER_BU
 # Run ansible role against environment
 cp "${PLAYBOOK_OLD_PATH}" .
 if [[ -f "${PLAYBOOK_PATH}" ]]; then
-    sed "s~${TRAVIS_BUILD_DIR}~REPL_ROLE_PATH~g" "${PLAYBOOK_PATH}"
     ansible-playbook -i "${INVENTORY_PATH}" "${PLAYBOOK_PATH}" -vvv
 else
     echo "Cannot find playbook!"
