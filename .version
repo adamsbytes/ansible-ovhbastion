@@ -5,4 +5,4 @@
 1.0.4,"Enhanced pipeline and updated README"
 1.0.5,"Improved metadata and project attributes. Completed automatic pipeline versioning system."
 1.1.0,"Add interactiveModeTimeout and MFAPasswordMaxDays as optional variables. Update bastion version target to latest."
-1.1.1,"README improvements"
+1.1.1,"CI now uses requirements.txt for pip packages. README improvements."
