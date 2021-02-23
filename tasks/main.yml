@@ -44,19 +44,19 @@
 
 - name: install bastion packages
   shell:
-    cmd: "{{ bastion_install_dir }}"/bin/admin/packages-check.sh -i -s -t >> .package-install-log
+    cmd: "{{ bastion_install_dir }}/bin/admin/packages-check.sh -i -s -t >> .package-install-log"
     chdir: "{{ bastion_install_dir }}"
     creates: .package-install-log
 
 - name: complete basic system configuration
   shell:
-    cmd: "{{ bastion_install_dir }}"/bin/admin/install --new-install --no-wait >> .config-log
+    cmd: "{{ bastion_install_dir }}/bin/admin/install --new-install --no-wait >> .config-log"
     chdir: "{{ bastion_install_dir }}"
     creates: .config-log
 
 - name: verify perl module installation
   shell:
-    cmd: "{{ bastion_install_dir }}"/bin/dev/perl-check.sh >> .perlcheck-log
+    cmd: "{{ bastion_install_dir }}/bin/dev/perl-check.sh >> .perlcheck-log"
     chdir: "{{ bastion_install_dir }}"
     creates: .perlcheck-log
 
@@ -70,7 +70,7 @@
 
 - name: complete initial account setup
   expect:
-    command: "{{ bastion_install_dir }}"/bin/admin/setup-first-admin-account.sh "{{ bastion_superadmin_uname }}" auto
+    command: "{{ bastion_install_dir }}/bin/admin/setup-first-admin-account.sh" "{{ bastion_superadmin_uname }}" auto
     responses:
       (?i)passphrase: "{{ ssh_key }}"
     chdir: "{{ bastion_install_dir }}"
