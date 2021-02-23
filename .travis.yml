@@ -2,6 +2,8 @@
 language: python
 dist: focal
 python: "3.9"
+services:
+  - docker
 
 branches:
   only:
@@ -23,8 +25,11 @@ script:
   - yamllint ./
   - shellcheck ./.travis/*.sh
 
+after_script:
+  - ./.travis/do-tests.sh
+
 after_success:
-  - . .travis/version.sh
+  - ./.travis/version.sh
   - ./.travis/push-tags.sh
 
 notifications:

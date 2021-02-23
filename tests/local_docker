@@ -1,0 +1,2 @@
+[local]
+ansible-test ansible_connection=docker
