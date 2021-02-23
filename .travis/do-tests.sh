@@ -3,9 +3,9 @@ DOCKER_CONTAINER_NAME="${DOCKER_CONTAINER_NAME:-ansible-test}"
 DOCKER_BUILD_NAME="${1:-testct}"
 DOCKER_INVENTORY_FILE="${DOCKER_INVENTORY_FILE:-local_docker}"
 DOCKER_PLAYBOOK_FILE="${DOCKER_PLAYBOOK_FILE:-docker-playbook.yml}"
-DOCKERFILE_PATH="tests/Dockerfile"
-INVENTORY_PATH="tests/${DOCKER_INVENTORY_FILE}"
-PLAYBOOK_PATH="tests/${DOCKER_PLAYBOOK_FILE}"
+DOCKERFILE_PATH="ansible-ovhbastion/tests/Dockerfile"
+INVENTORY_PATH="ansible-ovhbastion/tests/${DOCKER_INVENTORY_FILE}"
+PLAYBOOK_PATH="${DOCKER_PLAYBOOK_FILE}"
 
 # TRAVIS_PULL_REQUEST is false when the source of the pipeline is NOT a pull request
 # if the source of the pipeline is a not a pull request (i.e., main branch),
