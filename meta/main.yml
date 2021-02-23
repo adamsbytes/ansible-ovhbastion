@@ -2,7 +2,7 @@
 galaxy_info:
   author: Adam Quanne
   role_name: ovhbastion
-  description: Install OVHcloud's The Bastion service for secure, monitored ssh.
+  description: Install OVHcloud's Bastion service for secure, monitored ssh.
   company: Adam Quanne
   license: license GPL-3.0-only
   min_ansible_version: 2.7
