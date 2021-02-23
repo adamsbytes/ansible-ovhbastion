@@ -26,7 +26,9 @@ script:
   - shellcheck ./.travis/*.sh
 
 after_script:
-  - ./.travis/do-tests.sh
+  - cd ..
+  - cp ansible-ovhbastion/tests/docker-playbook.yml .
+  - ./ansible-ovhbastion/.travis/do-tests.sh
 
 after_success:
   - ./.travis/version.sh
