@@ -6,7 +6,7 @@
     name:
       - python-pip
       - python-setuptools
-  when: ansible_facts['python_version'] is version('3', '<=')
+  when: ansible_facts['python_version'] is version('3', '<')
 
 - name: install python3 pip
   apt:
