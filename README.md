@@ -4,7 +4,7 @@ ansible-ovhbastion
 
 This role installs and configures [OVH Cloud](https://www.ovh.com/world/)'s [the Bastion](https://github.com/ovh/the-bastion) secured jump host server. The ovhbastion role is based on the [official  Bastion installation instructions](https://ovh.github.io/the-bastion/installation/basic.html). Please visit [the official Bastion documentation](https://ovh.github.io/the-bastion/index.html) for more information.
 
-Once you run this role, [click here](https://ovh.github.io/the-bastion/using/basics.html) to view the next steps in configuring OVH Bastion.
+Once you run this role, [click here](https://ovh.github.io/the-bastion/using/basics.html) to view the next steps in configuring the Bastion.
 
 Tested On
 ------------
