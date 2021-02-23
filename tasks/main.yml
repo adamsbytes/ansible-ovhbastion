@@ -41,7 +41,6 @@
 - name: install ttyrec deb package
   apt:
     deb: "{{ ttyrec_package_url }}"
-    update_cache: yes
 
 - name: install bastion packages
   shell:
