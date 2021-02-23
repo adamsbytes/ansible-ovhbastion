@@ -1,6 +1,6 @@
 ---
 # defaults file for ovhbastion
-bastion_version: 3.02.00 # ovh bastion version to install
+bastion_version: 3.03.00 # ovh bastion version to install
 ttyrec_version: 1.1.6.6 # ovh ttyrec version to install
 bastion_install_dir: "/opt/bastion" # code location
 bastion_package_url: "https://github.com/ovh/the-bastion/archive/v{{ bastion_version }}.tar.gz" # bastion tarball url
