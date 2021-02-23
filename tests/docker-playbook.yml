@@ -2,4 +2,4 @@
 - hosts: local
   become: true
   roles:
-    - ansible-ovhbastion
+    - REPL_ROLE_PATH
