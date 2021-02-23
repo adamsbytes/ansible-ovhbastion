@@ -3,8 +3,10 @@ DOCKER_CONTAINER_NAME="${DOCKER_CONTAINER_NAME:-ansible-test}"
 DOCKER_BUILD_NAME="${1:-testct}"
 DOCKER_INVENTORY_FILE="${DOCKER_INVENTORY_FILE:-local_docker}"
 DOCKER_PLAYBOOK_FILE="${DOCKER_PLAYBOOK_FILE:-docker-playbook.yml}"
-DOCKERFILE_PATH="ansible-ovhbastion/tests/Dockerfile"
-INVENTORY_PATH="ansible-ovhbastion/tests/${DOCKER_INVENTORY_FILE}"
+TEST_FILES_DIR="ansible-ovhbastion/tests"
+DOCKERFILE_PATH="${TEST_FILES_DIR}/Dockerfile"
+INVENTORY_PATH="${TEST_FILES_DIR}/${DOCKER_INVENTORY_FILE}"
+PLAYBOOK_OLD_PATH="${TEST_FILES_DIR}/${DOCKER_PLAYBOOK_FILE}"
 PLAYBOOK_PATH="${DOCKER_PLAYBOOK_FILE}"
 
 # TRAVIS_PULL_REQUEST is false when the source of the pipeline is NOT a pull request
@@ -20,6 +22,7 @@ docker build "${DOCKERFILE_PATH}" -t "${DOCKER_BUILD_NAME}"
 docker run -ti --privileged --name "${DOCKER_CONTAINER_NAME}" -d -P "${DOCKER_BUILD_NAME}"
 
 # Run ansible role against environment
+cp "${PLAYBOOK_OLD_PATH}" .
 if [[ -f "${PLAYBOOK_PATH}" ]]; then
     sed "s~${TRAVIS_BUILD_DIR}~REPL_ROLE_PATH~g" "${PLAYBOOK_PATH}"
     ansible-playbook -i "${INVENTORY_PATH}" "${PLAYBOOK_PATH}" -vvv
