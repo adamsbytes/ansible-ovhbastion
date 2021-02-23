@@ -27,7 +27,6 @@ script:
 
 after_script:
   - cd ..
-  - cp ansible-ovhbastion/tests/docker-playbook.yml .
   - ./ansible-ovhbastion/.travis/do-tests.sh
 
 after_success:
