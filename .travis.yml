@@ -1,7 +1,7 @@
 ---
 language: python
 dist: focal
-python: "3.9"
+python: "3.8"
 services:
   - docker
 
@@ -26,7 +26,8 @@ script:
   - shellcheck ./.travis/*.sh
 
 after_script:
-  - ./.travis/do-tests.sh
+  - cd ..
+  - ./ansible-ovhbastion/.travis/do-tests.sh
 
 after_success:
   - ./.travis/version.sh
